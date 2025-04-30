@@ -27,17 +27,25 @@ class Mcerutu extends CI_Model
         return $this->db->delete('item');
     }
 
-    // Ambil 1 produk berdasarkan ID (buat fitur edit nanti)
-    public function get_product_by_id($id)
-    {
-        return $this->db->get_where('item', ['id_produk' => $id])->row();
-    }
-
 
     // Update produk
     public function update_product($id, $data)
     {
         $this->db->where('id_produk', $id);
         return $this->db->update('item', $data);
+    }
+    public function total_produk() {
+        $this->db->select('COUNT(*) AS total');
+        $this->db->from('item');
+        $query = $this->db->get();
+        $result = $query->row(); 
+        return $result->total; 
+    }
+    public function total_user(){
+        $this->db->select('COUNT(*) AS total');
+        $this->db->from('user');
+        $query = $this->db->get();
+        $result = $query->row(); 
+        return $result->total;
     }
 }

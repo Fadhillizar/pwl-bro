@@ -30,8 +30,8 @@
         <!--begin::Small Box Widget 1-->
         <div class="small-box text-bg-primary">
             <div class="inner">
-            <h3>150</h3>
-            <p>New Orders</p>
+            <h3><?= $total?></h3>
+            <p>Total Produk</p>
             </div>
             <svg
             class="small-box-icon"
@@ -45,7 +45,7 @@
             ></path>
             </svg>
             <a
-            href="#"
+            href="<?= base_url('dashboard/lihat_dataProduk')?>"
             class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
             >
             More info <i class="bi bi-link-45deg"></i>
@@ -86,8 +86,8 @@
         <!--begin::Small Box Widget 3-->
         <div class="small-box text-bg-warning">
             <div class="inner">
-            <h3>44</h3>
-            <p>User Registrations</p>
+            <h3><?= $total_user?></h3>
+            <p>Total User</p>
             </div>
             <svg
             class="small-box-icon"

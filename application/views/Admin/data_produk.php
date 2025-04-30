@@ -65,11 +65,11 @@
                                     $no = 1;
                                     foreach($item as $i):?>
                                     <tr class="align-middle">
-                                        <td><?php echo $no++?></td>
-                                        <td><?php echo $i->nama_produk?></td>
-                                        <td><?php echo $i->kategori_produk?></td>
-                                        <td><?php echo $i->stok_produk?></td>
-                                        <td><?php echo $i->harga_produk?></td>
+                                        <td><?= $no++?></td>
+                                        <td><?= $i->nama_produk?></td>
+                                        <td><?= $i->kategori_produk?></td>
+                                        <td><?= $i->stok_produk?></td>
+                                        <td><?= $i->harga_produk?></td>
                                         <td>
                                             <img src="<?= base_url('bahan/img/'. $i->gambar_produk);?>">
                                         </td>
