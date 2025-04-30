@@ -1,0 +1,13 @@
+services:
+  pwl:
+    build: .
+    container_name: pwl-padil
+    volumes: 
+      - ./:/var/www/html
+    ports:
+      - 3045:80
+    networks:
+      - pwl
+networks:
+  pwl:
+    driver: bridge
