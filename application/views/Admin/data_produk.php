@@ -1,3 +1,12 @@
+<style>
+    img{
+        width: 10vh;
+        width: 10vh;
+        border-radius: 10px;
+}
+</style>
+
+
 <!--begin::App Main-->
 <main class="app-main">
     <!--begin::App Content Header-->
@@ -60,7 +69,9 @@
                                         <td><?php echo $i->kategori_produk?></td>
                                         <td><?php echo $i->stok_produk?></td>
                                         <td><?php echo $i->harga_produk?></td>
-                                        <td><?php echo $i->gambar_produk?></td>
+                                        <td>
+                                            <img src="<?= base_url('bahan/img/'. $i->gambar_produk);?>">
+                                        </td>
                                         <td>
                                           <div class="d-flex align-items-center">
                                                 <!-- tombol modal edit form -->
