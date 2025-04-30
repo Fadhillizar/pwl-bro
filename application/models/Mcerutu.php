@@ -11,6 +11,13 @@ class Mcerutu extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
+    public function get_kategori(){
+        $this->db->select('*');
+        $this->db->from('kategori');
+        $query = $this->db->get();
+        return $query;
+    }
     public function tampil_data()
     {
         return $this->db->get('produk');
@@ -21,10 +28,21 @@ class Mcerutu extends CI_Model
         return $this->db->insert('item', $data);
     }
 
+    public function data_kategrori($data)
+    {
+        return $this->db->insert('kategori', $data);
+    }
+
     public function mdelete($id_produk)
     {
         $this->db->where('id_produk', $id_produk);
         return $this->db->delete('item');
+    }
+
+    public function mdelete_kategori($id_kategori)
+    {
+        $this->db->where('id_kategori', $id_kategori);
+        return $this->db->delete('kategori');
     }
 
 
@@ -33,6 +51,10 @@ class Mcerutu extends CI_Model
     {
         $this->db->where('id_produk', $id);
         return $this->db->update('item', $data);
+    }
+    public function update_kategori($id, $data){
+        $this->db->where('id_kategori', $id);
+        return $this->db->update('kategori', $data);
     }
     public function total_produk() {
         $this->db->select('COUNT(*) AS total');

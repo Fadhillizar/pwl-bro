@@ -101,7 +101,7 @@
             ></path>
             </svg>
             <a
-            href="#"
+            href="<?= base_url('Dashboard/lihat_dataProduk')?>"
             class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover"
             >
             More info <i class="bi bi-link-45deg"></i>
