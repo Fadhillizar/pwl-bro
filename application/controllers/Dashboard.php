@@ -13,10 +13,12 @@ class Dashboard extends CI_Controller
     // *** Menampilkan Halaman Dashboard ***
     public function index()
     {
+        $data['total_user'] = $this->Mcerutu->total_user();
+        $data['total'] = $this->Mcerutu->total_produk();
         $this->load->view('template/head');
         $this->load->view('template/sidebar');
         $this->load->view('template/navbar');
-        $this->load->view('template/content');
+        $this->load->view('template/content', $data);
         $this->load->view('template/footer');
     }
 
@@ -33,17 +35,16 @@ class Dashboard extends CI_Controller
     // *** Menampilkan Halaman Data Produk ***
     public function lihat_dataProduk()
 {
-    $data['item'] = $this->Mcerutu->get_data()->result(); // ambil data dari model
+    $data['item'] = $this->Mcerutu->get_data()->result(); 
     $this->load->view('template/head');
     $this->load->view('template/sidebar');
     $this->load->view('template/navbar');
-    $this->load->view('Admin/data_produk', $data); // kirim data ke view
+    $this->load->view('Admin/data_produk', $data); 
     $this->load->view('template/footer');
 }
 
     public function data_produk()
     {
-        // $data['item'] = $this->db->get_where('item', ['id_produk' => $id_produk])->row_array();
         $this->load->view('template/head');
         $this->load->view('template/sidebar');
         $this->load->view('template/navbar');
@@ -92,7 +93,6 @@ class Dashboard extends CI_Controller
         $this->load->view('admin/vedit',$data);
         $this->load->view('template/Footer');
     }
-
 
     public function update_product()
     {
