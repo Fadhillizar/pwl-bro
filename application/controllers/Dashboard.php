@@ -125,12 +125,12 @@ class Dashboard extends CI_Controller
                 $data['gambar_produk'] = $upload['file_name'];
             } else {
                 $this->session->set_flashdata('error', $this->upload->display_errors());
-                redirect('dashboard/index');
+                redirect('dashboard/lihat_dataProduk');
             }
         }
 
         $this->Mcerutu->update_product($id, $data);
-        redirect('dashboard/index');
+        redirect('dashboard/lihat_dataProduk');
     }
 
     public function delete_product($id)
