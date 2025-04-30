@@ -24,7 +24,7 @@ class Mcerutu extends CI_Model
     public function mdelete($id_produk)
     {
         $this->db->where('id_produk', $id_produk);
-        $this->db->delete('item');
+        return $this->db->delete('item');
     }
 
     // Ambil 1 produk berdasarkan ID (buat fitur edit nanti)

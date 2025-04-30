@@ -26,7 +26,7 @@ class Dashboard extends CI_Controller
         $this->load->view('template/head');
         $this->load->view('template/sidebar');
         $this->load->view('template/navbar');
-        $this->load->view('Admin/data_kategori', $data);
+        $this->load->view('Admin/data_kategori');
         $this->load->view('template/footer');
     }
 
@@ -74,7 +74,7 @@ class Dashboard extends CI_Controller
             ];
 
             $this->Mcerutu->data_produk($data);
-            redirect('dashboard/index');
+            redirect('dashboard/lihat_dataProduk');
         } else {
             // Bisa redirect ke halaman form lagi + flashdata error jika mau lebih bagus
             echo $this->upload->display_errors();
@@ -133,9 +133,9 @@ class Dashboard extends CI_Controller
         redirect('dashboard/lihat_dataProduk');
     }
 
-    public function delete_product($id)
+    public function delete_product($id_produk)
     {
-        $this->Mcerutu->delete_product($id);
-        redirect('dashboard/index');
+        $this->Mcerutu->mdelete($id_produk);
+        redirect('dashboard/lihat_dataProduk');
     }
 }

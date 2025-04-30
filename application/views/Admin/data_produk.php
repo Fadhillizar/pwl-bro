@@ -46,7 +46,7 @@
                                         <th style="width: 10px">Kategori Produk</th>
                                         <th style="width: 10px">Stok Produk</th>
                                         <th style="width: 10px">Harga Produk</th>
-                                        <!-- <th style="width: 10px">Gambar Produk</th> -->
+                                        <th style="width: 10px">Gambar Produk</th>
                                         <th style="width: 10px">Action</th>
                                     </tr>
                                 </thead>
@@ -56,7 +56,6 @@
                                     foreach($item as $i):?>
                                     <tr class="align-middle">
                                         <td><?php echo $no++?></td>
-                                        <td><?php echo $i->id_produk?></td>
                                         <td><?php echo $i->nama_produk?></td>
                                         <td><?php echo $i->kategori_produk?></td>
                                         <td><?php echo $i->stok_produk?></td>
@@ -69,8 +68,7 @@
                                                     <i class="fa-regular fa-pen-to-square"></i> Edit
                                                 </a>
                                                 <!-- tombol modal hapus form -->
-                                                <a type="button" class="btn btn-danger btn-sm"
-                                                    onclick="">
+                                                <a type="button" class="btn btn-danger btn-sm" href="<?= base_url('dashboard/delete_product/'. $i->id_produk)?>">
                                                     <i class="fas fa-trash"></i> Hapus
                                                 </a>
                                             </div>
