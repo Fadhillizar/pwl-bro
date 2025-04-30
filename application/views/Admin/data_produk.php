@@ -35,6 +35,7 @@
     <div class="app-content">
         <!--begin::Container-->
         <div class="container-fluid">
+            
             <!--begin::Row-->
             <div class="row">
                 <div class="col-md-12">
@@ -74,6 +75,7 @@
                                         </td>
                                         <td>
                                           <div class="d-flex align-items-center">
+
                                                 <!-- tombol modal edit form -->
                                                 <a href="<?= base_url('dashboard/edit_product/'. $i->id_produk)?>" class="btn btn-warning btn-sm me-2">
                                                     <i class="fa-regular fa-pen-to-square"></i> Edit
