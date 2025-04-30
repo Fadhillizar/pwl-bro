@@ -6,7 +6,6 @@
 }
 </style>
 
-
 <!--begin::App Main-->
 <main class="app-main">
     <!--begin::App Content Header-->

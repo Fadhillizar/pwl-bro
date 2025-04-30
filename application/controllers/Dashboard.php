@@ -22,7 +22,7 @@ class Dashboard extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    // *** Menampilkan Halaman Data Kategori Produk ***
+    // *** Menampilkan Halaman Data Kategori***
     public function lihat_dataKategori()
     {
         
@@ -34,7 +34,47 @@ class Dashboard extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    // *** Menampilkan Halaman Data Produk ***
+    public function tambah_kategori()
+    {
+        $nama = $this->input->post('nama_kategori');
+         $data = [
+                'nama_kategori' => $nama
+            ];
+            $this->Mcerutu->data_kategrori($data);
+            redirect('dashboard/lihat_dataKategori');
+       
+    }
+
+    public function edit_kategori($id_kategori)
+    {
+        // Ambil data produk berdasarkan ID
+        $data['kategori'] = $this->db->get_where('kategori', ['id_kategori' => $id_kategori])->row_array();
+        // Load form untuk edit produk
+        $this->load->view('template/head');
+        $this->load->view('template/sidebar');
+        $this->load->view('template/navbar');
+        $this->load->view('admin/edit_kategori',$data);
+        $this->load->view('template/Footer');
+    }
+
+    public function update_kategori(){
+        $id      = $this->input->post('id_kategori');
+        $nama    = $this->input->post('nama_kategori');
+        $data = [
+            'nama_kategori' => $nama
+        ];
+        $this->Mcerutu->update_kategori($id, $data);
+        redirect('dashboard/lihat_dataKategori');
+    }
+
+    public function delete_kategori($id_kategori)
+    {
+        $this->Mcerutu->mdelete_kategori($id_kategori);
+        redirect('dashboard/lihat_dataKategori');
+    }
+
+
+    // *** Menampilkan Halaman Data Produk Dari Sini Bagian Produk***
     public function lihat_dataProduk()
 {
     $data['item'] = $this->Mcerutu->get_data()->result(); 
@@ -83,17 +123,7 @@ class Dashboard extends CI_Controller
             echo $this->upload->display_errors();
         }
     }
-    public function tambah_kategori()
-    {
-        $nama = $this->input->post('nama_kategori');
-         $data = [
-                'nama_kategori' => $nama
-            ];
-            $this->Mcerutu->data_kategrori($data);
-            redirect('dashboard/lihat_dataKategori');
-       
-    }
-
+    
     public function edit_product($id_produk)
     {
         // Ambil data produk berdasarkan ID
@@ -103,18 +133,6 @@ class Dashboard extends CI_Controller
         $this->load->view('template/sidebar');
         $this->load->view('template/navbar');
         $this->load->view('admin/vedit',$data);
-        $this->load->view('template/Footer');
-    }
-
-    public function edit_kategori($id_kategori)
-    {
-        // Ambil data produk berdasarkan ID
-        $data['kategori'] = $this->db->get_where('kategori', ['id_kategori' => $id_kategori])->row_array();
-        // Load form untuk edit produk
-        $this->load->view('template/head');
-        $this->load->view('template/sidebar');
-        $this->load->view('template/navbar');
-        $this->load->view('admin/edit_kategori',$data);
         $this->load->view('template/Footer');
     }
 
@@ -156,27 +174,11 @@ class Dashboard extends CI_Controller
         $this->Mcerutu->update_product($id, $data);
         redirect('dashboard/lihat_dataProduk');
     }
-    public function update_kategori(){
-        $id      = $this->input->post('id_kategori');
-        $nama    = $this->input->post('nama_kategori');
-        $data = [
-            'nama_kategori' => $nama
-        ];
-        $this->Mcerutu->update_kategori($id, $data);
-        redirect('dashboard/lihat_dataKategori');
-    }
 
     public function delete_product($id_produk)
     {
         $this->Mcerutu->mdelete($id_produk);
         redirect('dashboard/lihat_dataProduk');
     }
-
-    public function delete_kategori($id_kategori)
-    {
-        $this->Mcerutu->mdelete_kategori($id_kategori);
-        redirect('dashboard/lihat_dataKategori');
-    }
-
 
 }
